@@ -6,6 +6,6 @@ kategori: Aksi Bersih
 icon: 🌱
 deskripsi: Menjaga kebersihan lingkungan bersama masyarakat.
 gambar:
-  - assets/images/kegiatan/aksibersih/gerakanpedulilingkungan.jpg
+  - /assets/images/uploads/346547-blackangel.jpg
 views: 0
 ---
