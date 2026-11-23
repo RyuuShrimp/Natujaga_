@@ -1,0 +1,92 @@
+# ===== Konfigurasi Decap CMS untuk Natujaga =====
+# Dashboard admin akan tersedia di: https://DOMAIN-ANDA/admin/
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Lokasi penyimpanan foto yang di-upload lewat dashboard
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+locale: id
+
+collections:
+  # ===== Koleksi Kegiatan =====
+  - name: "kegiatan"
+    label: "Kegiatan"
+    label_singular: "Kegiatan"
+    folder: "content/kegiatan"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "judul"
+    summary: "{{judul}} — {{tanggal}}"
+    sortable_fields: ["tanggal", "judul"]
+    fields:
+      - { label: "Judul Kegiatan", name: "judul", widget: "string" }
+      - {
+          label: "Tanggal",
+          name: "tanggal",
+          widget: "string",
+          hint: "Contoh: 12 Desember 2026",
+        }
+      - {
+          label: "Kategori",
+          name: "kategori",
+          widget: "select",
+          options: ["Aksi Bersih", "Penanaman", "Edukasi", "Sosial"],
+        }
+      - {
+          label: "Icon (Emoji)",
+          name: "icon",
+          widget: "string",
+          required: false,
+          default: "🌿",
+          hint: "Satu emoji saja, misalnya 🌱 atau 🏖️",
+        }
+      - { label: "Deskripsi Singkat", name: "deskripsi", widget: "text" }
+      - {
+          label: "Foto Dokumentasi",
+          name: "gambar",
+          widget: "list",
+          required: false,
+          field: { label: "Foto", name: "foto", widget: "image" },
+        }
+
+  # ===== Koleksi Artikel =====
+  - name: "artikel"
+    label: "Artikel"
+    label_singular: "Artikel"
+    folder: "content/artikel"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "judul"
+    summary: "{{judul}} — {{tanggal}}"
+    sortable_fields: ["tanggal", "judul"]
+    fields:
+      - { label: "Judul Artikel", name: "judul", widget: "string" }
+      - {
+          label: "Tanggal",
+          name: "tanggal",
+          widget: "string",
+          hint: "Contoh: 12 September 2026",
+        }
+      - {
+          label: "Kategori",
+          name: "kategori",
+          widget: "string",
+          hint: "Contoh: Berita, Lingkungan, Edukasi, Sosial",
+        }
+      - {
+          label: "Foto Sampul",
+          name: "gambar",
+          widget: "list",
+          required: false,
+          field: { label: "Foto", name: "foto", widget: "image" },
+        }
+      - {
+          label: "Isi Artikel",
+          name: "body",
+          widget: "markdown",
+          hint: "Bisa menulis teks biasa atau HTML seperti <p>, <h3>, <ul>, <li>",
+        }
