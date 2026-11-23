@@ -1,0 +1,7 @@
+# Natujaga - pengaturan Netlify (file ini tinggal di root repo)
+# File situsnya ada di dalam folder "New folder", jadi Netlify diarahkan ke sana.
+# Setiap deploy, data.js dibuat ulang otomatis dari file content/*.md.
+[build]
+  base = "New folder"
+  command = "node scripts/generate-data.js"
+  publish = "."
