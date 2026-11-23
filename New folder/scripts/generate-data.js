@@ -127,6 +127,34 @@ function parseFullFrontmatter(fileContent) {
             } else {
                 fm[key] = [];
             }
+        } else if (/^[>|][+-]?$/.test(rawVal)) {
+            // YAML block scalar: Decap menulis teks panjang (mis. deskripsi)
+            // sebagai "deskripsi: >-" lalu isinya di baris-baris menjorok
+            // di bawahnya. Parser lama hanya membaca ">-"-nya saja, jadi
+            // isi teksnya hilang. Di sini seluruh blok dibaca utuh:
+            // ">" = paragraf dilipat jadi spasi, "|" = baris dipertahankan.
+            const folded = rawVal.startsWith('>');
+            const block = [];
+            let j = i + 1;
+            while (j < lines.length) {
+                const bl = lines[j];
+                if (bl.trim() === '') { block.push(''); j++; continue; }
+                if (/^\s/.test(bl)) { block.push(bl.trim()); j++; continue; }
+                break;
+            }
+            // Buang baris kosong di ujung blok
+            while (block.length && block[block.length - 1] === '') block.pop();
+            if (folded) {
+                let teks = '';
+                block.forEach((b) => {
+                    if (b === '') { teks += '\n'; }
+                    else { teks += (teks && !teks.endsWith('\n') ? ' ' : '') + b; }
+                });
+                fm[key] = teks.trim();
+            } else {
+                fm[key] = block.join('\n').trim();
+            }
+            i = j - 1;
         } else {
             fm[key] = rawVal;
         }
@@ -242,3 +270,4 @@ const articles = {
 }
 
 build();
+
