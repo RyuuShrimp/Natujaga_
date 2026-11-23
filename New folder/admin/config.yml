@@ -6,7 +6,7 @@ backend:
   branch: main
 
 # Lokasi penyimpanan foto yang di-upload lewat dashboard
-media_folder: "assets/images/uploads"
+media_folder: "New folder/assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
 locale: id
@@ -16,7 +16,7 @@ collections:
   - name: "kegiatan"
     label: "Kegiatan"
     label_singular: "Kegiatan"
-    folder: "content/kegiatan"
+    folder: "New folder/content/kegiatan"
     create: true
     slug: "{{slug}}"
     identifier_field: "judul"
@@ -57,7 +57,7 @@ collections:
   - name: "artikel"
     label: "Artikel"
     label_singular: "Artikel"
-    folder: "content/artikel"
+    folder: "New folder/content/artikel"
     create: true
     slug: "{{slug}}"
     identifier_field: "judul"
