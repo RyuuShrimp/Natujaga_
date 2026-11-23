@@ -4,16 +4,24 @@ tanggal: 25 November 2026
 kategori: Aksi Bersih
 icon: 🌿
 deskripsi: >-
-  UPDATE 2026-11-23 malam — baca dulu sebelum sesi: sejak checklist ini dibuat,
-  dua hal besar berubah.
+  Satu koreksi penting soal file persiapan yang kukirim jam 20:33 tadi, bos —
+  udah kuperbaiki barusan:
 
-  1. Admin Decap CMS sudah jalan dan bos sudah login (18:00 WIB, 23 Nov) di natujaga.netlify.app/admin/.
 
-  2. Bos menghapus SEMUA kegiatan & artikel lewat /admin/ (20:34 WIB, 23 Nov) karena belum ada konten asli — situs live sekarang kosong (kegiatan = 0, artikel = 0) dan memang mau dibiarkan kosong sampai ada kegiatan beneran. File supabase-schema.sql sudah dikoreksi: seed 5 kegiatan + 4 artikel lama sudah DIHAPUS dari SQL, supaya sesi besok tidak menghidupkan lagi konten yang bos hapus (termasuk isi copy-paste bersama/edukasi, tanggal Beach Clean Up 2026-12-12, dan foto prajurit fantasi). Tabel Supabase besok dibuat kosong.
+  File SQL versi tadi masih berisi data lama 5 kegiatan + 4 artikel sebagai isi awal. Kalau besok dijalankan apa adanya, konten yang barusan kamu hapus bakal hidup lagi di situs — persis yang kamu nggak mau. Itu udah kucabut: sekarang file-nya cuma bikin tabel kosong, tanpa isi awal sama sekali.
 
-  3. Repo aktif situs live sekarang RyuuShrimp/Natujaga_, bukan RyuuShrimp/natujaga — file situs ada di dalam folder "New folder/". Langkah 6 di bawah sudah dikoreksi: push ke Natujaga_, jangan ke repo lama.
 
-  4. Bukti dari penghapusan tadi: jalur admin → situs live sudah terbukti jalan end-to-end (hapus dari /admin/ → deploy otomatis → situs berubah). Yang belum terbukti tinggal arah posting baru — itu yang dites di Langkah 0 besok, pakai postingan sementara yang langsung dihapus lagi supaya situs tetap kosong.
+  Checklist-nya juga udah disesuaikan:
+
+
+  Tes Decap & tes dashboard besok pakai postingan sementara ("Tes — hapus setelah cek") yang langsung dihapus lagi, jadi situs tetap kosong kayak maumu
+
+  Dua pertanyaan yang tadi kuajukan resmi gugur, nggak perlu dijawab
+
+  Jadi besok aman: sesi VS Code nggak akan menghidupkan lagi apa pun yang udah kamu hapus. Nggak perlu dibalas malam ini — jam sesinya juga belum ditentukan, kita atur besok pas kamu siap.
+
+
+  Ini versi file yang udah dikoreksi
 gambar:
   - /assets/images/uploads/346547-blackangel.jpg
 ---
